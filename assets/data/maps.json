@@ -1,0 +1,60 @@
+{
+  "mars-1": {
+    "faction": "MARS",
+    "background": "maps/mars_bg.png",
+    "width": 6000,
+    "height": 4000,
+    "npcZones": [
+      {
+        "x": 1000,
+        "y": 1200,
+        "width": 800,
+        "height": 800,
+        "types": [
+          { "id": "streuner", "count": 20 },
+          { "id": "lordakia", "count": 10 }
+        ]
+      }
+    ],
+    "portals": [
+      { "to": "mars-2", "x": 5800, "y": 2000 }
+    ]
+  },
+
+  "mars-2": {
+    "faction": "MARS",
+    "background": "maps/mars_bg2.png",
+    "width": 6000,
+    "height": 4000,
+    "npcZones": [
+      {
+        "x": 2000,
+        "y": 2000,
+        "width": 1000,
+        "height": 1000,
+        "types": [
+          { "id": "lordakia", "count": 30 },
+          { "id": "sibelon", "count": 5 }
+        ]
+      }
+    ],
+    "portals": [
+      { "to": "mars-1", "x": 100, "y": 2000 },
+      { "to": "coliseo", "x": 3000, "y": 3900 }
+    ]
+  },
+
+  "coliseo": {
+    "faction": "PVP",
+    "background": "maps/coliseo_bg.png",
+    "width": 8000,
+    "height": 6000,
+    "npcZones": [],
+    "portals": [
+      { "to": "mars-2", "x": 500, "y": 3000 },
+      { "to": "venus-2", "x": 7500, "y": 3000 },
+      { "to": "jupiter-2", "x": 4000, "y": 500 },
+      { "to": "neptune-2", "x": 4000, "y": 5500 }
+    ]
+  }
+}

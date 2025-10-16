@@ -1,0 +1,16 @@
+{
+  "goliath": {
+    "name": "Goliath",
+    "hp": 50000,
+    "speed": 400,
+    "laserSlots": 15,
+    "specialAbility": "damageBoost"
+  },
+  "solace": {
+    "name": "Solace",
+    "hp": 40000,
+    "speed": 400,
+    "laserSlots": 10,
+    "specialAbility": "selfRepair"
+  }
+}

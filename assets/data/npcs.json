@@ -1,0 +1,38 @@
+{
+  "streuner": {
+    "hp": 400,
+    "rewardXP": 200,
+    "rewardCredits": 300,
+    "rewardHonor": 2,
+    "rewardUridium": 5,
+    "aggressive": true,
+    "speed": 120,
+    "attackRange": 350,
+    "damage": 50,
+    "onAttackChase": true
+  },
+  "lordakia": {
+    "hp": 800,
+    "rewardXP": 400,
+    "rewardCredits": 600,
+    "rewardHonor": 4,
+    "rewardUridium": 10,
+    "aggressive": true,
+    "speed": 150,
+    "attackRange": 400,
+    "damage": 80,
+    "onAttackChase": true
+  },
+  "sibelon": {
+    "hp": 5000,
+    "rewardXP": 1000,
+    "rewardCredits": 1500,
+    "rewardHonor": 10,
+    "rewardUridium": 25,
+    "aggressive": false,
+    "speed": 100,
+    "attackRange": 600,
+    "damage": 120,
+    "onAttackChase": true
+  }
+}

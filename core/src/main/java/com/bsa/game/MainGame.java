@@ -62,6 +62,14 @@ public class MainGame extends ApplicationAdapter {
 
     @Override
     public void create() {
+        // --- CARGA DE CONTENIDO (naves, npcs, mapas) ---
+        try {
+            com.bsa.game.data.GameContentLoader.loadAll();
+            Gdx.app.log("MainGame", "Contenido cargado correctamente.");
+        } catch (Exception e) {
+            Gdx.app.error("MainGame", "Error cargando contenido data-driven", e);
+        }
+        // --- FIN BLOQUE DE CARGA ---
         // Cámara y viewport
         camera = new OrthographicCamera();
         viewport = new FitViewport(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, camera);

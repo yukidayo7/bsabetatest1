@@ -1,12 +1,17 @@
 package com.bsa.game;
 
 import com.badlogic.gdx.math.Vector2;
+import com.bsa.game.data.GameContentLoader;
+import com.bsa.game.data.NpcType;
 
 public class Npc extends GameObject {
     private float health;
     private float maxHealth;
     private float size;
     private boolean dead;
+
+    // Datos del tipo del NPC
+    private NpcType npcType;
 
     // Recompensas
     private int rewardXP;
@@ -19,36 +24,49 @@ public class Npc extends GameObject {
         this.size = 40f;
         this.dead = false;
 
-        switch (name.toLowerCase()) {
-            case "streuner":
-                this.maxHealth = 400;
-                this.rewardXP = 100;
-                this.rewardCredits = 100;
-                this.rewardUridium = 5;
-                this.rewardHonor = 2;
-                break;
-            case "lordakia":
-                this.maxHealth = 800;
-                this.rewardXP = 200;
-                this.rewardCredits = 300;
-                this.rewardUridium = 10;
-                this.rewardHonor = 4;
-                break;
-            case "sibelon":
-                this.maxHealth = 5000;
-                this.rewardXP = 1000;
-                this.rewardCredits = 1500;
-                this.rewardUridium = 25;
-                this.rewardHonor = 10;
-                break;
-            default:
-                this.maxHealth = 1000;
-                this.rewardXP = 100;
-                this.rewardCredits = 100;
-                this.rewardUridium = 5;
-                this.rewardHonor = 2;
-                break;
+        // --- CARGA DE DATOS DESDE JSON ---
+        npcType = GameContentLoader.getNpc(name.toLowerCase());
+        if (npcType != null) {
+            this.maxHealth = npcType.hp;
+            this.rewardXP = npcType.rewardXP;
+            this.rewardCredits = npcType.rewardCredits;
+            // Asignaciones adicionales no definidas en el JSON:
+            this.rewardUridium = 5;
+            this.rewardHonor = 2;
+        } else {
+            // Si no se encuentra en el JSON, usar valores por defecto
+            switch (name.toLowerCase()) {
+                case "streuner":
+                    this.maxHealth = 400;
+                    this.rewardXP = 100;
+                    this.rewardCredits = 100;
+                    this.rewardUridium = 5;
+                    this.rewardHonor = 2;
+                    break;
+                case "lordakia":
+                    this.maxHealth = 800;
+                    this.rewardXP = 200;
+                    this.rewardCredits = 300;
+                    this.rewardUridium = 10;
+                    this.rewardHonor = 4;
+                    break;
+                case "sibelon":
+                    this.maxHealth = 5000;
+                    this.rewardXP = 1000;
+                    this.rewardCredits = 1500;
+                    this.rewardUridium = 25;
+                    this.rewardHonor = 10;
+                    break;
+                default:
+                    this.maxHealth = 1000;
+                    this.rewardXP = 100;
+                    this.rewardCredits = 100;
+                    this.rewardUridium = 5;
+                    this.rewardHonor = 2;
+                    break;
+            }
         }
+        // --- FIN BLOQUE DE CARGA ---
 
         this.health = this.maxHealth;
     }
@@ -104,5 +122,9 @@ public class Npc extends GameObject {
 
     public int getRewardHonor() {
         return rewardHonor;
+    }
+
+    public NpcType getNpcType() {
+        return npcType;
     }
 }

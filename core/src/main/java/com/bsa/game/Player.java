@@ -1,6 +1,8 @@
 package com.bsa.game;
 
 import com.badlogic.gdx.math.Vector2;
+import com.bsa.game.data.GameContentLoader;
+import com.bsa.game.data.ShipType;
 
 /**
  * Player (nave) - movimiento inmediato al target.
@@ -10,7 +12,11 @@ public class Player {
     private Vector2 pos;
     private Vector2 target;
     private Vector2 direction;
-    private float speed = 400f; // velocidad en px/s
+
+    // datos del tipo de nave
+    private ShipType shipType;
+
+    private float speed; // velocidad en px/s
     private float size = 20f;
     private float rotation; // grados
     private boolean moving;
@@ -22,6 +28,14 @@ public class Player {
         direction = new Vector2(0, 1);
         rotation = 0f;
         moving = false;
+
+        // Cargar el tipo de nave desde JSON
+        shipType = GameContentLoader.getShip("goliath"); // tipo por defecto
+        if (shipType != null) {
+            this.speed = shipType.speed;
+        } else {
+            this.speed = 400f; // valor de respaldo
+        }
     }
 
     public void update(float delta) {
@@ -73,5 +87,9 @@ public class Player {
 
     public boolean isMoving() {
         return moving;
+    }
+
+    public ShipType getShipType() {
+        return shipType;
     }
 }
