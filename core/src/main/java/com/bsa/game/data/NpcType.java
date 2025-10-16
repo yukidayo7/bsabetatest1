@@ -8,6 +8,7 @@ public class NpcType {
     public int rewardUridium;
     public int rewardHonor;
     public boolean aggressive;
+    public float respawnDelaySec = 10f; // tiempo de respawn en segundos
     public float speed;
     public int attackRange;
     public int damage;

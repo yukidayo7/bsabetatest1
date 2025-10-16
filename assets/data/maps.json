@@ -1,17 +1,17 @@
 {
-  "mars-1": {
-    "faction": "MARS",
-    "background": "maps/mars_bg.png",
-    "width": 6000,
-    "height": 4000,
+  "academy 1-1": {
+    "faction": "academy 1",
+    "background": "default_space_bg.png",
+    "width": 1200,
+    "height": 600,
     "npcZones": [
       {
-        "x": 1000,
-        "y": 1200,
-        "width": 800,
-        "height": 800,
+        "x": 3000,
+        "y": 3200,
+        "width": 1800,
+        "height": 1800,
         "types": [
-          { "id": "streuner", "count": 20 },
+          { "id": "streuner", "count": 10 },
           { "id": "lordakia", "count": 10 }
         ]
       }
@@ -21,7 +21,7 @@
     ]
   },
 
-  "mars-2": {
+  "": {
     "faction": "MARS",
     "background": "maps/mars_bg2.png",
     "width": 6000,
@@ -44,7 +44,7 @@
     ]
   },
 
-  "coliseo": {
+  "": {
     "faction": "PVP",
     "background": "maps/coliseo_bg.png",
     "width": 8000,
